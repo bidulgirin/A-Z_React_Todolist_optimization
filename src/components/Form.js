@@ -5,20 +5,19 @@ function Form({ value, setValue, handleSubmit }) {
     setValue(e.target.value);
   };
   return (
-    <form style={{ display: "flex" }} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex pb-2">
       <input
         type="text"
         name="value"
-        style={{ flex: "10", padding: "5px" }}
         placeholder="해야 할 일을 입력하세요."
         onChange={handleChange}
         value={value}
+        className="w-full px-3 py-2 mr-4 text-gray-500 border rounded shadow"
       />
       <input
         type="submit" //애가 눌려지면 form에 onSubmit가 실행됨
         value="입력"
-        className="btn"
-        style={{ flex: "1" }}
+        className="btn className p-2 text-blue-400 border-2 border0blue-400 rounded hover:text-white hover:bg-blue-200"
       />
     </form>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import List from "./components/List";
+import Lists from "./components/Lists";
 import Form from "./components/Form";
 // 클래스 컴포넌트
 export default function App() {
@@ -27,13 +27,21 @@ export default function App() {
   // 화면 출력
 
   return (
-    <div className="container">
-      <div className="todoBlock">
-        <div className="title">
-          <h1 className="text-3xl font-bold underline">할 일 목록</h1>
+    <div className="flex items-center justify-center w-screen h-screen bg-blue-100">
+      <div className="todoBlock w-full p-6 m-4 bg-white rounded shadow md:w-3/4 md:max-3/4 md:max-w-lg lg:w-3/4 lg:max-w-lg">
+        {/*
+          md:w-3/4 
+          md:max-3/4 
+          md:max-w-lg 
+          lg:w-3/4 
+          lg:max-w-lg 
+        반응형
+        */}
+        <div className="title flex justify-between mb-3">
+          <h1 className="font-bold">할 일 목록</h1>
         </div>
         <Form value={value} setValue={setValue} handleSubmit={handleSubmit} />
-        <List todoData={todoData} setTodoData={setTodoData} />
+        <Lists todoData={todoData} setTodoData={setTodoData} />
       </div>
     </div>
   );
