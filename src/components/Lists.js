@@ -1,27 +1,13 @@
 import React from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import List from "./List";
-//  x버튼 스타일
 
-function Lists({ todoData, setTodoData }) {
-  // const btnStyle = {
-  //   color: "#fff",
-  //   border: "none",
-  //   padding: "5px 9px",
-  //   borderRadius: "50%",
-  //   cursor: "pointer",
-  //   float: "right",
-  // };
-  // 목록 스타일
-  // const getStyle = (completed) => {
-  //   return {
-  //     padding: "10px",
-  //     borderBottom: "1px #ccc dotted",
-  //     textDecoration: completed ? "line-through" : "none",
-  //   };
-  // };
-  // x버튼 클릭 이벤트
-
+const Lists = React.memo(({ todoData, setTodoData }) => {
+  /**
+   * 잡고 놓을때 이벤트 처리
+   * @param {*} result
+   * @returns 재정렬된데이터를 리턴
+   */
   const handleEnd = (result) => {
     console.log(result);
     //목적지가 없으면 이벤트 취소함
@@ -37,6 +23,7 @@ function Lists({ todoData, setTodoData }) {
     //원하는 자리에 reorderedItem을 삽입해줌
     newTodoData.splice(result.destination.index, 0, reorderedItem);
     setTodoData(newTodoData);
+    localStorage.setItem("todoData", JSON.stringify(newTodoData));
   };
 
   return (
@@ -71,6 +58,6 @@ function Lists({ todoData, setTodoData }) {
       </Droppable>
     </DragDropContext>
   );
-}
+});
 
 export default Lists;

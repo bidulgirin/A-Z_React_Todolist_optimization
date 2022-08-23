@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function Form({ value, setValue, handleSubmit }) {
+const Form = ({ value, setValue, handleSubmit }) => {
   // 글 쓸수 있게 하는 이벤트 핸들러
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -21,6 +21,5 @@ function Form({ value, setValue, handleSubmit }) {
       />
     </form>
   );
-}
-
+};
 export default Form;
